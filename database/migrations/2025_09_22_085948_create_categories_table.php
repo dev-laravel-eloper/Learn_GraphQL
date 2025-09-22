@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->nullableMorphs('categorizable');
             $table->string('title');
-            $table->text('description');
+            $table->string('description');
             $table->string('main_image');
             $table->boolean('status')->default(1);
             $table->timestamps();
