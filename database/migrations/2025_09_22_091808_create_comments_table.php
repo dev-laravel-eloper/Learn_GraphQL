@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->morphs('categorizable');
-            $table->string('title');
-            $table->string('slug');
-            $table->string('description');
-            $table->string('main_image');
-            $table->boolean('status')->default(1);
+            $table->nullableMorphs('commentable');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->string('text');
+            $table->integer('score')->default(0);
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('comments');
     }
 };

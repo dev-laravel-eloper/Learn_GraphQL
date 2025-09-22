@@ -17,7 +17,7 @@ class Category extends Model
     /**
      * @return MorphTo
      */
-    public function categorizable():MorphTo
+    public function categorizable(): MorphTo
     {
         return $this->morphTo();
     }
