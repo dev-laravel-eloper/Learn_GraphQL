@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->nullableMorphs('categorizable');
             $table->string('title');
+            $table->string('slug');
             $table->string('description');
             $table->string('main_image');
             $table->boolean('status')->default(1);
