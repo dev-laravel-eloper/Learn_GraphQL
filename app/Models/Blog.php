@@ -27,6 +27,14 @@ class Blog extends Model
     }
 
     /**
+     * @return MorphMany
+     */
+    public function comments(): MorphMany
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    /**
      * @return BelongsTo
      */
     public function user(): BelongsTo
